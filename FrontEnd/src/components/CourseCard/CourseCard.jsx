@@ -30,7 +30,6 @@ function CourseCard({ course, subscribe, register }) {
           className={styles.courseImage}
           onClick={() => open(url)}
         />
-        <p className={styles.coursePrice}>{price} Dhs</p>
         <div className={styles.courseRating}>
           {ratingStars(rating)}
         </div>

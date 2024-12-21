@@ -14,7 +14,7 @@ function CategoriesAdmin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const val = await axios.get('http://localhost:8080/admin/categories');
+        const val = await axios.get('https://rssplearning.tech/admin/categories');
         setCategories(val.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -45,7 +45,7 @@ function CategoriesAdmin() {
 
   const onDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/admin/categories/${id}`);
+      await axios.delete(`https://rssplearning.tech/admin/categories/${id}`);
     } catch (error) {
       console.error('Error deleting data:', error);
     }

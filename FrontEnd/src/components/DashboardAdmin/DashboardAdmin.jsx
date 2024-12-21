@@ -24,10 +24,10 @@ function DashboardAdmin() {
         const fetchData = async () => {
             try {
                 const [coursesNr, categoriesNr, instructorsNr, studentsNr] = await Promise.all([
-                    axios.get('http://localhost:8080/admin/courses/nr'),
-                    axios.get('http://localhost:8080/admin/categories/nr'),
-                    axios.get('http://localhost:8080/admin/instructors/nr'),
-                    axios.get('http://localhost:8080/admin/students/nr'),
+                    axios.get('https://rssplearning.tech/admin/courses/nr'),
+                    axios.get('https://rssplearning.tech/admin/categories/nr'),
+                    axios.get('https://rssplearning.tech/admin/instructors/nr'),
+                    axios.get('https://rssplearning.tech/admin/students/nr'),
                 ]);
 
                 setDashboardData({

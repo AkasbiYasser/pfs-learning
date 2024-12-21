@@ -37,7 +37,7 @@ function Course() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const val = await axios.get('http://localhost:8080/admin/courses');
+        const val = await axios.get('https://rssplearning.tech/admin/courses');
         setCourses(val.data);
       } catch (error) {
         console.error('Error fetching data:', error);

@@ -40,7 +40,7 @@ function SessionsPage() {
 
     const fetchData = async (userData) => {
       try {
-        const val = await axios.get(`http://localhost:8080/user/${userData.id}/courses`);
+        const val = await axios.get(`https://rssplearning.tech/user/${userData.id}/courses`);
         setCourses(val.data);
       } catch (error) {
         console.error('Error fetching data:', error);

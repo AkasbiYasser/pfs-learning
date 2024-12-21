@@ -34,13 +34,13 @@ function CoursePage() {
     const user = GetCookie("user");
     
     try {
-      await axios.post(`http://localhost:8080/user/${user.id}/courses/${course.id}`);
+      await axios.post(`https://rssplearning.tech/user/${user.id}/courses/${course.id}`);
     } catch (error) {
       console.error('Error adding course to user:', error);
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/user/login', {
+      const response = await axios.post('https://rssplearning.tech/user/login', {
         email: user.email,
         password: user.password
       });
@@ -91,7 +91,7 @@ function CoursePage() {
 
     const fetchCourse = async () => {
       try {
-        const val = await axios.get(`http://localhost:8080/admin/courses/${params.id}`);
+        const val = await axios.get(`https://rssplearning.tech/admin/courses/${params.id}`);
         setCourse(val.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -105,7 +105,7 @@ function CoursePage() {
     const fetchUserCourses = async () => {
       try {
         const user = GetCookie("user");
-        const val = await axios.get(`http://localhost:8080/user/${user.id}/courses`);
+        const val = await axios.get(`https://rssplearning.tech/user/${user.id}/courses`);
         setUserCourses(val.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -155,7 +155,6 @@ function CoursePage() {
               {ratingStars(course.rating)}
             </div>
             <p><i>{formatDate(course.startDate)}</i> à <i>{formatDate(course.endDate)}</i></p>
-            <p className={styles.coursePrice}>{course.price} Dhs</p>
             <button className={`${styles.courseButton} ${isSubscribed() ? "btn-info" : ""}`} onClick={() => enroll()} style={{ cursor: isSubscribed() ? 'not-allowed' : 'pointer' }} disabled={isSubscribed()}>{isSubscribed() ? "Vous êtes inscrit à ce cours" : "S'inscrire à ce cours"}</button>
             {pop &&
               <PopUp title="S'inscrire à ce cours"

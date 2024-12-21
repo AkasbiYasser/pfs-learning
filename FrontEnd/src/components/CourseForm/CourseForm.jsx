@@ -22,7 +22,6 @@ function CourseForm({ data, ADD, CANCEL }) {
   const [id, setId] = useState('');
   const [courseData, setCourseData] = useState({
     title: '',
-    price: '',
     categoryName: '',
     rating: '',
     description: '',
@@ -48,7 +47,7 @@ function CourseForm({ data, ADD, CANCEL }) {
     e.preventDefault();
 
     try {
-      axios.post('http://localhost:8080/admin/courses', courseData);
+      axios.post('https://rssplearning.tech/admin/courses', courseData);
     } catch (error) {
       console.error('Error adding data:', error);
     }
@@ -60,7 +59,7 @@ function CourseForm({ data, ADD, CANCEL }) {
     e.preventDefault();
 
     try {
-      axios.put(`http://localhost:8080/admin/courses/${id}`, courseData);
+      axios.put(`https://rssplearning.tech/admin/courses/${id}`, courseData);
     } catch (error) {
       console.error('Error editing data:', error);
     }
@@ -76,7 +75,7 @@ function CourseForm({ data, ADD, CANCEL }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const val = await axios.get('http://localhost:8080/admin/categories');
+        const val = await axios.get('https://rssplearning.tech/admin/categories');
         setCategories(val.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -89,7 +88,7 @@ function CourseForm({ data, ADD, CANCEL }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const val = await axios.get('http://localhost:8080/admin/instructors');
+        const val = await axios.get('https://rssplearning.tech/admin/instructors');
         setInstructors(val.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -115,7 +114,6 @@ function CourseForm({ data, ADD, CANCEL }) {
           <div className={styles.formRight}>
             <input type="text" name="title" placeholder='Titre' value={courseData.title} onChange={handleInputChange} />
             <input type="text" name="mainImagePath" placeholder='Image Url' value={courseData.mainImagePath} onChange={handleInputChange} />
-            <input type="text" name="price" placeholder='Prix' value={courseData.price} onChange={handleInputChange} />
             <input type="number" name="rating" min="1" max="5" placeholder='Evaluation (1-5)' value={courseData.rating} onChange={handleInputChange} />
             <label>
               Catégorie:<br />
