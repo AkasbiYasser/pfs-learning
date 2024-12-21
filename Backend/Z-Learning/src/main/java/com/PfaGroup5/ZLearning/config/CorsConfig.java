@@ -8,6 +8,7 @@ import java.util.List;
 
 @Configuration
 public class CorsConfig {
+
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -33,7 +34,10 @@ public class CorsConfig {
         // Autoriser les credentials (cookies)
         config.setAllowCredentials(true);
 
-        source.registerCorsConfiguration("/", config);
+        // Enregistrement de la configuration CORS pour toutes les requêtes
+        source.registerCorsConfiguration("/**", config);
+
         return new CorsFilter(source);
-    }
+    }
 }
+
